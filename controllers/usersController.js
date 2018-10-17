@@ -10,9 +10,24 @@ router.get('/new', (req, res) => {
 	res.render('users/new.ejs')
 })
 //show
-
+router.get('/:id', async (req, res) => {
+	try {
+	const foundUser = await Users.findById(req.params.id)
+	res.render('users/show.ejs', {
+		user: foundUser
+	});
+	} catch(err){
+		res.send(err)
+	}
+})
 //edit
 
+//post
+router.post('/', (req, res) => {
+	users.create(req.body, () =>  {
+		
+	})
+})
 //new
 
 //edit put
