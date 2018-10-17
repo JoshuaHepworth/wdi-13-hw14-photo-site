@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Users Index</h1>
+<a href="/">Home</a>
+<br>
+<ul>
+	<%users.forEach((elem, i) => {%>
+		<li><a href="/users/<%=elem.id%>"><%=elem.name%></a></li>
+		<%})%>
+</ul>
+<br>
+<a href="/users/new">Add User</a>
+</body>
+</html>
