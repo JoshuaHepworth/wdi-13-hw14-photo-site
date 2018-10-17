@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
 
 //DB
 require('./db/db');
@@ -8,14 +9,15 @@ require('./db/db');
 const usersController = require('./controllers/usersController');
 
 //MIDDLEWARE
-app.use('./users', usersController);
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/users', usersController);
 
 
 
 
 
 app.get('/', (req, res) => {
-	res.render('users/index.ejs')
+	res.send('Welcome Home')
 });
 
 
