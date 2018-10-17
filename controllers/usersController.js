@@ -1,9 +1,14 @@
 const express = require('express')
 const router = express.Router()
+const User = require('../models/users')
 
 //index
 router.get('/', (req, res) => {
-	res.render(req.body)
+	User.find({}, (err, foundUsers) => {
+		res.render('users/index.ejs', {
+			users: foundUsers
+		})
+	})
 })
 //new
 router.get('/new', (req, res) => {
@@ -24,8 +29,13 @@ router.get('/:id', async (req, res) => {
 
 //post
 router.post('/', (req, res) => {
-	users.create(req.body, () =>  {
-		
+	User.create(req.body, (err, newUser) =>  {
+		if(err){
+			console.log(err)
+		} else {
+			console.log(newUser)
+		}
+		res.redirect('/users')
 	})
 })
 //new
