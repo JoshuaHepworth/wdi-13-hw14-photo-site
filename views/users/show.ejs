@@ -5,11 +5,16 @@
 </head>
 <body>
 	<header>
-		<h1>Show Page for <%=user.name%></h1>
+		<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/users">Users Index</a></li>
+		<li><a href="/users/<%=user.id%>/edit">Edit User</a></li>
+		</ul>
+		<h1>Show Page for</h1><br>
+		<h2>User: <%=user.username%></h2>
 		<nav>
 			<ul>
-				<li> <a href="/">Home</a></li>
-				<li><a href="/users"></a></li>
+			
 			</ul>
 		</nav>
 	</header>

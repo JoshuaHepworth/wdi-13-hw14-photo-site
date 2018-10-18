@@ -17,7 +17,7 @@ router.get('/new', (req, res) => {
 //show
 router.get('/:id', async (req, res) => {
 	try {
-	const foundUser = await Users.findById(req.params.id)
+	const foundUser = await User.findById(req.params.id)
 	res.render('users/show.ejs', {
 		user: foundUser
 	});
@@ -26,6 +26,13 @@ router.get('/:id', async (req, res) => {
 	}
 })
 //edit
+router.get('/:id/edit', (req, res) => {
+	User.findById(req.params.id, (err, editUser) => {
+		res.render('users/edit.ejs', {
+			user: editUser
+		})
+	})
+})
 
 //post
 router.post('/', (req, res) => {
@@ -38,12 +45,31 @@ router.post('/', (req, res) => {
 		res.redirect('/users')
 	})
 })
-//new
 
-//edit put
 
+// put
+router.put('/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body, (err, updateUser) => {
+    res.redirect('/users');
+  });
+});
 //delete
+router.delete('/:id', (req, res) => {
+  User.findOneAndDelete(req.params.id, (err, deletedUser) => {
+    const photosIds = [];
 
+    for (let i = 0; i < deletedUser.photos.length; i++){
+      photoIds.push(deletedUser.photos[i].id);
+    }
+    Photo.deleteMany({
+      _id: {
+        $in: photoIds
+      }
+    }, (err, data) => {
+      res.redirect('/users');
+    });
+  });
+});
 
 
 
