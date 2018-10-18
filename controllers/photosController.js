@@ -29,6 +29,14 @@ router.get('/:id', (req, res)=>{
     });
   });
 // });
+router.get('/:id/edit', (req, res) => {
+	Photo.findById(req.params.id, (err, editPhoto) => {
+		res.render('photos/edit.ejs', {
+			photo: editPhoto
+		})
+	})
+})
+
 router.post('/', (req, res) => {
 	Photo.create(req.body, (err, createdPhoto) => {
 		if(err){

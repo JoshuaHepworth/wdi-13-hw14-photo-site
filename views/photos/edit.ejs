@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <button><a href="/photos">Back to Index</a></button><br><br>
+  <button><a href="/photos/<%=photo.id%>">Go Back</a></button><br>
+<h1>Edit <%=photo.title%></h1>
+<br>
+<ul>
+<form action="/photos/<%=photo.id%>?_method=PUT" method="POST">
+  title: <input type="text" name="title"><br>
+  <label for="url">Link New Photo:</label>
+          <input type="url" name="urls" id="url"
+               placeholder="https://example.com"
+               size="20" 
+               required/>
+               <input type="submit" value="Add photo"/>
+  </form>
+</body>
+</html>
