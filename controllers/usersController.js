@@ -40,9 +40,8 @@ router.post('/', (req, res) => {
 		if(err){
 			console.log(err)
 		} else {
-			console.log(newUser)
+			res.redirect('/users')
 		}
-		res.redirect('/users')
 	})
 })
 

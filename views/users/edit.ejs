@@ -4,12 +4,11 @@
 	<title></title>
 </head>
 <body>
-<h1>Edit <%=user.name%></h1>
+	<button><a href="/users">Back to Index</a></button><br><br>
+	<button><a href="/users/<%=user.id%>">Go Back</a></button><br>
+<h1>Edit <%=user.username%></h1>
 <br>
 <ul>
-	<li><a href="/">Home</a></li>
-	<li><a href="/users">Users Index</a></li>
-</ul>
 <form action="/users/<%=user.id%>?_method=PUT" method="POST"></form>
 	Username: <input type="text" name="username"><br>
 	Password: <input type="text" name="password"><br>

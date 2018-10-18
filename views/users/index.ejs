@@ -5,14 +5,14 @@
 </head>
 <body>
 <h1>Users Index</h1>
-<a href="/">Home</a>
+<!-- <a href="/">Home</a> -->
 <br>
-<ul>
+<ol>
 	<%users.forEach((elem, i) => {%>
 		<li><a href="/users/<%=elem.id%>"><%=elem.username%></a></li>
 		<%})%>
-</ul>
+</ol>
 <br>
-<a href="/users/new">Add User</a>
+<a href="/users/new">New User</a>
 </body>
 </html>
