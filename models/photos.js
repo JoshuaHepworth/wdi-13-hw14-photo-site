@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongooseUrl = require('mongoose-type-url')
 const Schema = mongoose.Schema
 
 const photosSchema = new mongoose.Schema({
