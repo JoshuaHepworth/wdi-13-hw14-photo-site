@@ -10,13 +10,12 @@
 <br>
 <ul>
 <form action="/photos/<%=photo.id%>?_method=PUT" method="POST">
-  title: <input type="text" name="title"><br>
-  <label for="url">Link New Photo:</label>
+  Change Title: <input type="text" name="title"><br><br>
+  <label for="url">Change Photo:</label>
           <input type="url" name="urls" id="url"
-               placeholder="https://example.com"
-               size="20" 
-               required/>
-               <input type="submit" value="Add photo"/>
+               value="<%=photo.urls%>"
+               size="20"/><br><br>
+               <input type="submit" value="Save"/>
   </form>
 </body>
 </html>

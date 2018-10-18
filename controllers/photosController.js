@@ -46,7 +46,11 @@ router.post('/', (req, res) => {
 		}
 	})
 })
-
+router.put('/:id', (req, res) => {
+	 Photo.findByIdAndUpdate(req.params.id, req.body, (err, updatePhoto) => {
+    res.redirect('/photos');
+  });
+});
 
 
 

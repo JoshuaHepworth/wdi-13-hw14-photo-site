@@ -35,7 +35,7 @@ router.get('/:id/edit', (req, res) => {
 	})
 })
 
-//post
+//post and create
 router.post('/', (req, res) => {
 	User.create(req.body, (err, newUser) =>  {
 		if(err){
@@ -47,7 +47,7 @@ router.post('/', (req, res) => {
 })
 
 
-// put
+// put and edit
 router.put('/:id', (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body, (err, updateUser) => {
     res.redirect('/users');
