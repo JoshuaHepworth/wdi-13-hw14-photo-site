@@ -6,9 +6,12 @@
 <body>
 	<header>
 		<ul>
-		<li><a href="/">Home</a></li>
+		<!-- <li><a href="/">Home</a></li> -->
 		<li><a href="/users">Users Index</a></li>
 		<li><a href="/users/<%=user.id%>/edit">Edit User</a></li>
+		<form action="/users/<%=user.id%>?_method=DELETE" method="POST">
+			<button type="submit">Delete User</button>
+		</form>
 		</ul>
 		<h1>Show Page for</h1><br>
 		<h2>User: <%=user.username%></h2>
