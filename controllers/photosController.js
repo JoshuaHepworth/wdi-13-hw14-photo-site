@@ -13,22 +13,23 @@ router.get('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-	Photo.find({}, (err, allUsers) => {
-		res.render('photos/new.ejs')
+	User.find({}, (err, allUsers) => {
+		res.render('photos/new.ejs', {
+			users: allUsers
+		})
 	})
 })
 
 router.get('/:id', (req, res)=>{
   Photo.findById(req.params.id, (err, foundPhoto)=>{
-    // User.findOne({'photos._id': req.params.id}, (err, foundUser) => {
-      // console.log(foundUser, ' this is foundUser')
+    User.findOne({'photos._id': req.params.id}, (err, foundUser) => {
         res.render('photos/show.ejs', {
           photo: foundPhoto,
-          // user: foundUser
-        });
+          user: foundUser
+      });
     });
   });
-// });
+});
 router.get('/:id/edit', (req, res) => {
 	Photo.findById(req.params.id, (err, editPhoto) => {
 		res.render('photos/edit.ejs', {
@@ -52,7 +53,16 @@ router.put('/:id', (req, res) => {
   });
 });
 
-
+router.delete('/:id', (req, res)=>{
+  Photo.findByIdAndRemove(req.params.id, (err, deletedPhoto)=>{
+    // User.findOne({'photos._id': req.params.id}, (err, foundUser) => {
+      // foundUser.photos.id(req.params.id).remove();
+      // foundUser.save((err, data) => {
+         res.redirect('/photos');
+      });
+    })
+  // });
+// });
 
 
 

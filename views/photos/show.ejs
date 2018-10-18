@@ -4,8 +4,12 @@
 	<title></title>
 </head>
 <body>
-	<h1>Username Placeholder Photo</h1>
-	<button><a href="/photos/<%=photo.id%>/edit">Edit Photo</a></button>
+	<button><a href="/photos">Index</a><br></button><br><br>
+	<button><a href="/photos/<%=photo.id%>/edit">Edit Photo</a></button><br><br>
+	<form action="/photos/<%=photo.id%>?_method=DELETE" method="POST">
+		<button type="submit">Delete Photo</button>
+	</form>
+	<h1> Photos </h1>
 	<img style="height: 100%; width: 100%" src="<%=photo.urls%>">
 </body>
 </html>
