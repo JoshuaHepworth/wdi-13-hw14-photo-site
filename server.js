@@ -8,11 +8,13 @@ require('./db/db');
 
 //CONTROLLER
 const usersController = require('./controllers/usersController');
+const photosController = require('./controllers/photosController');
 
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'))
 app.use('/users', usersController);
+app.use('/photos', photosController)
 
 
 

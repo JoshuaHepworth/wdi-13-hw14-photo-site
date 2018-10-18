@@ -12,9 +12,32 @@ router.get('/', (req, res) => {
 	});
 });
 
+router.get('/new', (req, res) => {
+	Photo.find({}, (err, allUsers) => {
+		res.render('photos/new.ejs')
+	})
+})
 
-
-
+router.get('/:id', (req, res)=>{
+  Photo.findById(req.params.id, (err, foundPhoto)=>{
+    // User.findOne({'photos._id': req.params.id}, (err, foundUser) => {
+      // console.log(foundUser, ' this is foundUser')
+        res.render('photos/show.ejs', {
+          photo: foundPhoto,
+          // user: foundUser
+        });
+    });
+  });
+// });
+router.post('/', (req, res) => {
+	Photo.create(req.body, (err, createdPhoto) => {
+		if(err){
+			console.log(err)
+		} else {
+			res.redirect('/photos')
+		}
+	})
+})
 
 
 

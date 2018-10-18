@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a href="/users">Users Index</a>
+	<h1>Photos</h1><br>
+	<ol>
+		<%photos.forEach((elem, i) => {%>
+			<li><a href="/photos/<%=elem.id%>"><%=elem.title%></a></li>
+			<%})%>
+	</ol>
+
+
+
+	<a href="/photos/new">New Photo</a>
+</body>
+</html>

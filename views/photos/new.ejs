@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>New photo</h1><br>
+	<form action="/photos" method="POST">
+		Title: <input type="text" name="title"><br>
+		<div class="control">
+    		<label for="url">Link photo:</label>
+        	<input type="url" name="urls" id="url"
+               placeholder="https://example.com"
+               size="20" 
+               required/>
+               <input type="submit" value="Add photo"/>
+    </form>
+</body>
+</html>
